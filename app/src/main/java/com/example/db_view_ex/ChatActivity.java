@@ -4,15 +4,20 @@ import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,5 +77,37 @@ public class ChatActivity extends AppCompatActivity {
                 }
             });
 
+        ExpandableListView ListView = (ExpandableListView)findViewById(R.id.ListView);
+        final ArrayList<position> positions = getData();
+
+        myAdapter adapter = new myAdapter(this,positions);
+        ListView.setAdapter(adapter);
+
+        ListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                Toast.makeText(getApplicationContext(),positions.get(groupPosition).comments.get(childPosition),Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
+
     }
+    private ArrayList<position> getData(){
+        position p1 = new position("택배");
+        p1.comments.add("누구세요?");
+        p1.comments.add("문 앞에 놓아주세요");
+        p1.comments.add("문 앞에 있습니다");
+
+        position p2 = new position("택시");
+        p2.comments.add("집 앞으로 나갈까?");
+        p2.comments.add("어디쯤이니?");
+        p2.comments.add("몇 분 남았어? 내리기 5분 전에 연락해");
+
+        ArrayList<position> allcomment = new ArrayList<>();
+        allcomment.add(p1);
+        allcomment.add(p2);
+
+        return allcomment;
+    }
+
 }
