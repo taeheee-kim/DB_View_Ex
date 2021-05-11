@@ -5,28 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="10"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context=".ChatActivity">
 
-    <EditText
-        android:id="@+id/add_comment"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_weight="8"
-        android:hint="멘트를 입력하세요."></EditText>
+    <RadioGroup
+        android:id="@+id/rgroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="5dp">
+        <RadioButton
+            android:id="@+id/rbtn_postbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="택배"
+            android:layout_marginRight="10dp"></RadioButton>
+        <RadioButton
+            android:id="@+id/rbtn_taxi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="택시"
+            android:layout_marginLeft="10dp"></RadioButton>
+    </RadioGroup>
 
-    <Button
-        android:id="@+id/btn_add_comment"
-        android:text="추가"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_weight="2"
-        ></Button>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/add_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="8"
+            android:hint="멘트를 입력하세요."></EditText>
+
+        <Button
+            android:id="@+id/btn_add_comment"
+            android:text="추가"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="2"
+            ></Button>
+
+    </LinearLayout>
+
 
 </LinearLayout>
