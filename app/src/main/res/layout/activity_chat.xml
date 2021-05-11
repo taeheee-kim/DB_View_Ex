@@ -4,7 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:weightSum="10"
+    android:orientation="horizontal"
     tools:context=".ChatActivity">
+
+    <EditText
+        android:id="@+id/add_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="8"
+        android:hint="멘트를 입력하세요."></EditText>
+
+    <Button
+        android:id="@+id/btn_add_comment"
+        android:text="추가"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="2"
+        ></Button>
 
 </LinearLayout>
